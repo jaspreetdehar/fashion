@@ -1,0 +1,119 @@
+{% load static %}
+<!--section class="news-letter m-0 p-0">
+        <div class="row subscribe-box m-0 p-0">
+            <div class="col-md-12 d-flex">
+                <div class="col-md-6 px-5">
+                    <div class="icon-folder d-flex align-items-center">
+                        <i class="fa-brands fa-slack"></i>
+                        <h2>Subscribe our newsletter</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form>
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-floating d-flex">
+                                    <input type="email" class="form-control " id="floatingInputGrid"
+                                        placeholder="name@example.com" value="  ">
+                                    <label for="floatingInputGrid">Email address</label>
+                                    <button type="submit" class="sub-button"><i
+                                            class="fa-solid fa-paper-plane"></i></button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section-->
+
+<footer class="footer-area">
+    <div class="container">
+        <div class="main-footer">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <a href="#"><img src="{% static '/images/header-logo.png' %}" alt=""></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit, consectetur elit, sed do adipisicing eiusmod</p>
+                        <div class="footer-content">
+                            <div class="single-footer-content">
+                                <p><a href="#"><i class="fa-solid fa-phone"></i>+012 345 678 102</a></p>
+                                <p><a href="#"><i class="fa-solid fa-envelope"></i>info@example.com</a></p>
+                                <p><a href="#"><i class="fa-solid fa-location-dot"></i>c-133, phase-8,
+                                        industrial area, mohali (punjab)</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3">
+                    <div class="footer-widget">
+                        <div class="footer-title">
+                            <h3>Account</h3>
+                        </div>
+                        <div class="footer-list">
+                            <ul>
+                                <li><a href="{% url 'login' %}">Login</a></li>
+                                <li><a href="{% url 'reg' %}">Register</a></li>
+                                <!-- <li><a href="#">Help</a></li>
+                                <li><a href="#">Support</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-3">
+                    <div class="footer-widget">
+                        <div class="footer-title">
+                            <h3>Useful Link</h3>
+                        </div>
+                        <div class="footer-list">
+                            <ul>
+                                <li><a href="{% url 'faq' %}">FAQs</a></li>
+                                <li><a href="{% url 'aboutus' %}">About us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <!--div class="col-lg-2 col-md-4 col-sm-4">
+                    <div class="footer-widget">
+                        <div class="footer-title">
+                            <h3>Categories</h3>
+                        </div>
+                        <div class="footer-list">
+                            <ul>
+                                <li><a href="#">Men</a></li>
+                                <li><a href="#">Women</a></li>
+                                <li><a href="#">Jeins</a></li>
+                                <li><a href="#">Shoes</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div-->
+                <div class="col-lg-3 col-md-8 col-sm-8">
+                    <div class="footer-widget">
+                        <div class="footer-title">
+                            <h3>Social links</h3>
+                        </div>
+                        <div class="contact-links">
+                            <a href="https://twitter.com/whowhatwearuk?lang=en"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/WhoWhatWearUK/"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/whowhatwear.uk/?hl=en"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a href="https://www.pinterest.co.uk/whowhatwearuk/"><i
+                                    class="fa-brands fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="copyright">
+        <div class="container">
+            <div class="Copy text-center">
+                Copyright <a href="{% url 'home' %}">Amciran Fashion</a> © 2023. All Right Reserved..
+            </div>
+        </div>
+    </div>
+</footer>
