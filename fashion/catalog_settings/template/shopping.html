@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <p class="card-text title">{{category.name}}</p>
+                                    <p class="card-text title"><a href="{% url 'catalog' url=category.url %}">{{category.name}}</a></p>
 
                                     <h5 class="product-rating">
                                         <i class="fa-solid fa-star"></i>
@@ -56,13 +56,13 @@
                     <div class="card m-3">
                         <div class="row g-0 ">
                             <div class="col-md-4 p-2 img-block">
-                                <img src="/media/{{ shopping.pic2 }}" class="img-fluid rounded-start"
-                                    alt="{{shopping.name}}">
+                                <a  href="/product/{{ shopping.id }}"><img src="/media/{{ shopping.pic2 }}" class="img-fluid rounded-start"
+                                    alt="{{shopping.name}}"></a>
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <!-- <p class="card-text title"><a href="/product/{{ shopping.id }}">{{shopping.name}}</a></p> -->
-                                    <p class="card-text title">{{shopping.name}}</p>
+                                    <p class="card-text title fs-3 fw-bold mb-1"><a class="text-dark" href="/product/{{ shopping.id }}">{{shopping.name}}</a></p>
+                                    <!-- <p class="">{{shopping.name}}</p> -->
 
                                     <h5 class="product-rating">
                                         <i class="fa-solid fa-star"></i>
@@ -73,8 +73,8 @@
                                     </h5>
 
                                     <p class="card-text price">
-                                         <small class="text-body-secondary">₹{{ shopping.sellingprice }}</small>
-                                        <strike style="font-size:20px">₹{{shopping.mrp}}</strike>
+                                        <span class="fs-4 text-danger fw-bold me-2">₹{{shopping.mrp}}</span>
+                                        <strike style="font-size:17px; font-weight: 600;color: #333">₹{{ shopping.sellingprice }}</strike>
                                     </p>
                                     <p class="product-bio">{{ shopping.description }}</p>
                                     <!--a href="/ProductDetails/{{shopping.id}}">View Product</a-->
@@ -82,8 +82,7 @@
                                     <form action="/cart/add/{{shopping.id}}" method="post">
                                         {% csrf_token %}
                                         {{ cart_product_form }}
-                                        <input type="submit" value="Add to cart" class="btn text-light bg-success"
-                                            id="b1"><br>
+                                        <button class="card-hover" >Add to cart</button><br>
                                     </form>
                                 </div>
                             </div>
@@ -102,12 +101,12 @@
 
 
                                 {% if prd.has_next %}
-                                <a href="?page={{ prd.next_page_number }}" class="page-link text-decoration-none" >next</a>
-                                <a href="?page={{ prd.paginator.num_pages }}" class="page-link text-decoration-none" >last &raquo;</a>
+                                <a href="?page={{ prd.next_page_number }}" class="page-link text-decoration-none card-hover" >next</a>
+                                <a href="?page={{ prd.paginator.num_pages }}" class="page-link text-decoration-none card-hover" >last &raquo;</a>
                                 {% endif %}
                             </span>
                         </div>
-                        <span class="current" class="page-link link">
+                        <span class="current  " class="page-link link">
                             Page {{ prd.number }} of {{ prd.paginator.num_pages }}.
                         </span>
                     </div>

@@ -21,6 +21,8 @@ from users import views
 from contact_details import views as contact
 from catalog_settings import views as catalog
 from cart import views as cart
+from blog import views as blog
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('reg',views.reg,name='reg'),
@@ -34,6 +36,9 @@ urlpatterns = [
     path('logout',views.logout,name="logout"),
     path('about-us',views.aboutus,name="aboutus"),
     path('faq',views.faq,name="faq"),
+    path('blog',blog.blogs,name="blog"),
+    path('blog/<slug:url>', blog.blog,name='blog-view'),
+    path('comment', blog.comments,name='blog-comments'),
     path('product/<slug:url>',catalog.product_details,name="catalog"),
     path('catalog/<slug:url>',catalog.category_details,name="catalog"),
     path('catalog/product/<int:id>',catalog.product_details,name="product"),
@@ -43,6 +48,6 @@ urlpatterns = [
     path('cart/', cart.cart_detail, name='cart_detail'),
     path('orders/', include('order.urls')),
     path('accessories',views.accessories,name="accessories"),
-    path('shop-jeans',views.jeans,name="jeans"),
-    path('shop-shirts',views.shirts,name="shirts"),
+    path('team',views.team,name="team"),
+    path('terms',views.terms,name="terms"),
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

@@ -5,6 +5,9 @@ from django.http import HttpResponseRedirect;
 from django.contrib import messages
 from catalog_settings.models import *
 from cart.forms import CartAddProductForm
+from blog.models import *
+# from team.models import *
+
 def reg(request):
 	title= {"title":"Registration page"}
 	return render(request,"registration.html",title)
@@ -77,9 +80,10 @@ def logout(request):
 
 def home(request):
 	categories = Category.objects.all()
+	blog = Blog.objects.all().order_by('id')[:3]
 	prd=products.objects.all()
 	cart_product_form= CartAddProductForm()
-	return render(request,"after_home.html",{"title":"Home page",'categories':categories,'prd':prd})
+	return render(request,"after_home.html",{"title":"Home page",'categories':categories,'prd':prd,'blog':blog})
 	#return render(request,"after_home.html",{"title":"Home page"})
 
 def accessories(request):
@@ -111,9 +115,23 @@ def shirts(request):
 
 def aboutus(request):
 	title = {'title':'About Us'}
-	return render(request, 'team.html',title)
+	return render(request, 'about_us.html',title)
 
 
 def faq(request):
 	title = {'title':'FAQs'}
 	return render(request, 'faq.html',title)
+
+def blog(request):
+	blog = Blog.objects.all().order_by('id')[:3]
+	blogdata = {'title':'blog','blog':blog}
+	return render(request, 'blogs.html',blogdata)
+
+def terms(request):
+	title = {'title':'terms'}
+	return render(request, 'terms.html',title)
+
+def team(request):
+	title = {'title':'team'}
+	return render(request, 'team.html',title)
+

@@ -16,7 +16,7 @@
                     <h2>top sale</h2>
                     <h6>new collection 2022</h6>
                     <div class="slider-btn">
-                        <a class="animated" href="{% url 'shop' %}">shopping now</a>
+                        <a class="btn-hover" href="{% url 'shop' %}">shopping now</a>
                     </div>
                 </div>
             </div>
@@ -98,60 +98,36 @@
     </div>
 </div>
 <!-- categories product-area start -->
-<section class="product-area">
+<section class="hot-product">
     <div class="container">
-        <!-- categories start -->
-        <div class="section-title text-center">
-            <h2 class="text-capitalize fw-bold">all categories</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-        </div>
-        <!-- <div class="product-tab-list text-center pb-50">
-            <a href="#">new arrivals</a>
-            <a href="#">best sellers</a>
-            <a href="#">sale items</a>
-        </div> -->
-        <div class="row" id="rotate">
-            <div class="tab-content">
-                <div class="products-items d-inline-flex p-2">
-                    {% for category in categories %}
-                    {% if forloop.counter <= 4 %} <!-- <div class="row"> -->
-                        <div class="col-xl-3 col-lg-2 col-md-4 col-sm-6 col-12">
-                            <div class="products-wrap">
-                                <div class="products-image">
-                                    <a href="#">
-                                        <img src="/media/{{category.pic}}" alt="">
-                                    </a>
-                                    <!-- <sapn class="product-badge">-30%</sapn> -->
-                                    <!--div class="product-action">
-                                            <a href="#">
-                                                <i class="fa-solid fa-plus"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa-solid fa-cart-shopping"></i>
-                                            </a>
-                                            <a href="#">
-                                                <i class="fa-regular fa-heart"></i>
-                                            </a>
-                                        </div-->
-                                </div>
-                                <div class="products-content products-content-padding text-center">
-                                    <h4><a href="#">{{category.name}}</a></h4>
-                                    <div class="product-rating">
-                                        {{category.description}}
-                                    </div>
-                                    <div class="product-prize">
-                                        <a href="{% url 'catalog' url=category.url %}">View</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-                        <!-- </div> -->
-                        {% endfor %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title text-center">
+                    <h2 class="text-capitalize fw-bold">all categories</h2>
+                    <p>This category includes clothing, shoes, jewelry, and other fashion accessories.</p>
                 </div>
             </div>
+            <div class="row product-list g-4" id="categories_silder">
+                {% for category in categories %}
+                {% if forloop.counter <= 5 %} <div class="col-md-3 col-lg-3 m-3">
+                    <div class="card">
+                        <div class="card-img">
+                            <a href="{% url 'catalog' url=category.url %}"><img src="/media/{{category.pic}}" alt=""></a>
+                        </div>
+                        <div class="card-body products-content products-content-padding text-center">
+                            <h4><a href="{% url 'catalog' url=category.url %}">{{category.name}}</a></h4>
+                            <div class="product-desc mb-2">
+                                {{category.description}}
+                            </div>
+                            <div class="product-prize mt-3">
+                                <a href="{% url 'catalog' url=category.url %}" class="header-hover">View</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            {% endif %}
+            {% endfor%}
         </div>
-        <!-- categories end -->
     </div>
 </section>
 <!--categories product-area start -->
@@ -159,28 +135,28 @@
 <section class="banner-2">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-6 col-md-6  animatable fadeinleft">
                 <div class="banner">
                     <div class="banner-wrap">
-                        <a href="#">
+                        <a href="{% url 'accessories' %}">
                             <img src="{% static '/images/banner_1.webp' %}" alt="">
                         </a>
                         <div class="content">
                             <h3>Fashionable<br> ladies Bag</h3>
-                            <a href="#">shop now</a>
+                            <a href="{% url 'accessories' %}">shop now</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6">
+            <div class="col-lg-6 col-md-6 animatable fadeinright">
                 <div class="banner">
                     <div class="banner-wrap">
-                        <a href="#">
+                        <a href="{% url 'shop' %}">
                             <img src="{% static '/images/banner_2.webp' %}" alt="">
                         </a>
                         <div class="content">
                             <h3>Dj Fashion<br> Man Shoes</h3>
-                            <a href="#">shop now</a>
+                            <a href="{% url 'shop' %}">shop now</a>
                         </div>
                     </div>
                 </div>
@@ -199,24 +175,28 @@
             <div class="col-md-12">
                 <div class="section-title text-center">
                     <h2 class="text-capitalize fw-bold">all products</h2>
+                    <p>This includes shirts, pants, lower, and T-shirt, designed for different and styles.</p>
                 </div>
             </div>
-            <div class="row product-list g-4">
+            <div class="row product-list g-4" id="product_silder">
                 {% for shopping in prd %}
-                {% if forloop.counter <= 4 %} <div class="col-md-3 col-lg-3">
-                <div class="card">
-                    <img src="/media/{{ shopping.pic2 }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{shopping.name}}</h5>
-                        <p class="card-text ">₹{{shopping.mrp}}</p>
-                        <p class="product-bio">{{ shopping.description }}</p>
-                        <form action="/cart/add/{{shopping.id}}" method="post">
-                            {% csrf_token %}
-                            <input type="hidden" name="quantity" value="1">
-                            <input type="submit" value="Add to cart" class="btn text-light bg-success" id="b1"><br>
-                        </form>
+                {% if forloop.counter <= 5 %} <div class="col-md-3 col-lg-3">
+                    <div class="card">
+                        <a href="/product/{{ shopping.id }}"><img src="/media/{{ shopping.pic2 }}" class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                            <h5 class="card-title "><a href="/product/{{ shopping.id }}">{{ shopping.name }}</a></h5>
+                            <p class="card-text price">
+                                <span class="fs-4 text-danger fw-bold me-2">₹{{ shopping.mrp }}</span>
+                                <strike style="font-size:17px; font-weight: 600;color: #333">₹{{ shopping.sellingprice }}</strike>
+                            </p>
+                            <p class="product-bio">{{ shopping.description }}</p>
+                            <form action="/cart/add/{{shopping.id}}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="quantity" value="1">
+                               <button class="card-hover" >Add to cart</button><br>
+                            </form>
+                        </div>
                     </div>
-                </div>
             </div>
             {% endif %}
             {% endfor%}
@@ -239,7 +219,7 @@
                             href="//www.tickcounter.com/"></a>
                     </div>
                     <div class="button">
-                        <a href="./shop-jeans.html" target="_self">view more</a>
+                        <a class="btn-hover" href="{% url 'shop' %}" target="_self">shopping now</a>
                     </div>
                 </div>
             </div>
@@ -257,54 +237,25 @@
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
         </div>
         <div class="row">
+            {%for getblog in blog%}
             <div class="col-md-6 col-lg-4">
                 <div class="blog-wrap">
                     <div class="blog-img">
                         <a href="#">
-                            <img src="{% static '/images/blog-1.webp' %}" alt="img">
+                            <img src="/media/{{ getblog.pic }}" alt="">
                         </a>
                     </div>
                     <div class="blog-content">
-                        <h3><a href="#">We Denounce with Righteou</a></h3>
+                        <h3><a href="blog/{{getblog.key}}">{{getblog.name}}</a></h3>
                         <div class="blog-meta">
-                            <a href="#"><i class="fa-regular fa-user"></i> Madhubi</a>
-                            <a href="#"><i class="fa-regular fa-clock"></i> May 29, 2023</a>
+                            <a href="#"><i class="fa-regular fa-user"></i> By Admin</a>
+                            <a href="#"><i class="fa-regular fa-clock"></i> {{ getblog.created_at|date:"D d M, Y" }}</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="blog-wrap">
-                    <div class="blog-img">
-                        <a href="#">
-                            <img src="{% static '/images/blog-2.webp' %}" alt="img">
-                        </a>
-                    </div>
-                    <div class="blog-content">
-                        <h3><a href="#">It is a long established fact</a></h3>
-                        <div class="blog-meta">
-                            <a href="#"><i class="fa-regular fa-user"></i> Farhana</a>
-                            <a href="#"><i class="fa-regular fa-clock"></i> May 29, 2023</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="blog-wrap">
-                    <div class="blog-img">
-                        <a href="#">
-                            <img src="{% static '/images/blog-3.webp' %}" alt="img">
-                        </a>
-                    </div>
-                    <div class="blog-content">
-                        <h3><a href="#">We Denounce with Righteou</a></h3>
-                        <div class="blog-meta">
-                            <a href="#"><i class="fa-regular fa-user"></i> Rayed</a>
-                            <a href="#"><i class="fa-regular fa-clock"></i> May 29, 2023</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {%endfor%}
+           
         </div>
     </div>
 </section>
@@ -316,7 +267,7 @@
             <div class="video-content">
                 <h3>Summer 2022</h3>
                 <div class="video-icon">
-                    <a href="#"><i class="fa-regular fa-circle-play"></i></a>
+                    <a href="https://youtu.be/x7KeNcjBGIY?t=4"><i class="fa-regular fa-circle-play"></i></a>
                 </div>
             </div>
         </div>
@@ -367,22 +318,7 @@
 
 
 <!---Bootstrap 5 js-->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-    crossorigin="anonymous"></script>
-<!---------------------->
-<!--Jquery cdn-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
-    integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!--------------------->
-<!--slick cdn-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <!----------------------------->
 <!--------------end------------->
 <!-----------start------------------>
@@ -391,10 +327,56 @@
         dots: false,
         arrow: false,
         infinite: true,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 2000,
         speed: 300,
         slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: false,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#rotate').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 3,
         slidesToScroll: 1,
         responsive: [
             {
@@ -433,14 +415,60 @@
 <!--------------end------------->
 <!-----------start------------------>
 <script type="text/javascript">
-    $('#rotate').slick({
+    $('#categories_silder').slick({
         dots: true,
         arrow: false,
         infinite: true,
         autoplay: true,
         autoplaySpeed: 2000,
         speed: 300,
-        slidesToShow: 3,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    infinite: true,
+                    dots: true,
+                    arrow: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    arrow: false
+
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrow: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding: 
+            // settings: "unslick" 
+            // instead of a settings object 
+        ]
+    }); 
+</script>
+<!--------------end------------->
+<!-----------start------------------>
+<script type="text/javascript">
+    $('#product_silder').slick({
+        dots: true,
+        arrow: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 300,
+        slidesToShow: 4,
         slidesToScroll: 1,
         responsive: [
             {

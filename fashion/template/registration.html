@@ -7,7 +7,7 @@
     <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
     {% endfor %}
     {% endif %}
-  <div class="wrapper">
+  <div class="wrapper-sign-up">
     <h2>Registration</h2>
     <form method="post" action="reg/user">
       {% csrf_token %}

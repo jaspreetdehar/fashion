@@ -14,14 +14,47 @@ Your Shopping Cart| Checkout
             </div>
         </div>
     </div>
+
+    
     <section class="order-form">
         <div class="row ordercreate" id="ordercreate">
             <div class="col-md-6 offset-1">
                 <h4 class="page-header">Checkout</h4>
-                <form action="{% url 'order_create' %}" method="post" class="form-control my-5 p-3">
-                    {% csrf_token %}
-                    {{ form.as_p }}<br>
-                    <button type="submit" class="btn text-light btn-primary" id="b1" value="Submit order">Submit</button>
+                <form action="{% url 'order_create' %}" method="post" class="form-control mb-4">
+                    <div class="row g-3 mt-1">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="first_name" placeholder="First Name"
+                                id="First-name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="last_name" placeholder="Last Name"
+                                id="last-name" required>
+                        </div>
+                        <div class="col-12">
+                            <input type="email" class="form-control" name="email" placeholder="Email" id="email"
+                                required>
+                        </div>
+                        <div class="col-md-6    ">
+                            <input type="text" class="form-control" name="postal_code" placeholder="Postal Address"
+                                id="inputZip" required>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" name="city" placeholder="city" id="inputCity"
+                                required>
+                        </div>
+                        <div class="col-md-12">
+                            <textarea name="address" id="" class="w-100 form-control" placeholder="Address" style="resize:none"  cols="num" rows="num"></textarea>
+                        </div>
+                        <div class="col-md-12 d-flex gap-1 mb-2">
+                            <div class="pay_label">Cash On: </div>
+                            <div class="input_box"><input type="radio" checked name="pay_method" value="cash_on">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="card-hover">Submit</button>
+                        </div>
+                    </div>
                 </form>
                 <!--  -->
                 

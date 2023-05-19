@@ -61,11 +61,11 @@
                                     {% csrf_token %}
                                     {{ item.update_quantity_form.quantity }}
                                     {{ item.update_quantity_form.update }}
-                                    <input type="submit" value="Update" class="btn text-light" id="b1">
-                                </form>
+                                <button type="submit" value="Update" class="header-hover fs-6">Update</button>
+                            </form>    
                             </td>
                             <td>
-                                <a href="/cart/remove/{{ product.id }}" class="text-danger fs-6 text">Remove</a>
+                                <a href="/cart/remove/{{ product.id }}" class="header-hover fs-6 text">Remove</a>
                             </td>
                             <td class="fs-6 text">Rs. {{ item.price }}</td>
                             <td class="fs-6 text">Rs. {{ item.total_price }}</td>
@@ -83,13 +83,12 @@
         
              {% if cart|length > 0 %}
              <p class="text-right">
-            <!--<a href="{ url 'order_create' }">Checkout</a>-->
-            <a href="{% url 'order_create' %}" style="background-color: #4A9E27;color: #fff;" class="btn" id="b1">Checkout</a>
+            <!--<a href="{ url 'order_create' }">Checkout</a>--> 
+            <a href="{% url 'order_create' %}"  class="card-hover" >Checkout</a>
             </p>
              {% else %}
              <p class="d-flex align-items-center justify-content-center">
-                        <a href="{% url 'home' %}" style="background-color: #4A9E27;color: #fff;" class="btn" id="b1">
-              Continue Shopping      </a>
+                <a href="{% url 'home' %}" class="card-hover" >Continue Shopping</a>
             </p>
             {%endif%}
         

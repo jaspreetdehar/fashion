@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'catalog_settings',
     'cart',
     'order',
+    'blog',
+    'tinymce'
 
 ]
 
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'fashion.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR,"template",'contact_details/template','catalog_settings/template','cart/template'],
+        'DIRS': [BASE_DIR,"template",'contact_details/template','catalog_settings/template','cart/template','blog/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

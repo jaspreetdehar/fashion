@@ -44,7 +44,7 @@ def shopping(request):
     page_obj = paginator.get_page(page_number)
     cart_product_form= CartAddProductForm()
     #data={'prd':prd,'cart_product_form':cart_product_form}
-    data={'title':'product List','prd':page_obj,'cart_product_form':cart_product_form,'categories':categories}
+    data={'title':'Product List','prd':page_obj,'cart_product_form':cart_product_form,'categories':categories}
     return render(request,"shopping.html",data)
 
 
