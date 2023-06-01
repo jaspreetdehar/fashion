@@ -2,30 +2,39 @@
 <footer style="background-color: #96dee3d1">
     <div class="container">
         <div class="row main_footer ">
-            <div class="col-md-4 left-sec">
+            <div class="col-lg-4 left-sec">
                 <div class="row">
-                    <div class="footer-logo text-center">
-                        <a href="#"><img src="{% static '/images/header-logo.png' %}" alt=""></a>
+                    <div class="col-lg-12 col-md-8">
+                        <div class="row footer-logo-tablet">
+                            <div class="col-lg-4 footer-logo text-center">
+                                <a href="{% url 'home' %}"><img src="{% static '/images/header-logo.png' %}" alt=""></a>
+                            </div>
+                            <p>We offer a wide range of stylish and trendy clothing, shoes, and accessories for men,
+                                women, and children. Our collection is carefully curated to bring you the latest fashion
+                                trends from around the world.</p>
+                        </div>
                     </div>
-                    <p>We offer a wide range of stylish and trendy clothing, shoes, and accessories for men,
-                        women, and children. Our collection is carefully curated to bring you the latest fashion
-                        trends from around the world.</p>
-                </div>
-                <div class="row social">
-                    <h3>social media</h3>
-                    <div class="contact-links">
-                        <a href="https://twitter.com/whowhatwearuk?lang=en"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="https://www.facebook.com/WhoWhatWearUK/"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/whowhatwear.uk/?hl=en"><i
-                                class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.pinterest.co.uk/whowhatwearuk/"><i class="fa-brands fa-pinterest"></i></a>
+                    <div class="col-lg-12 col-md-4">
+                        <div class="row social">
+                            <h3>social media</h3>
+                            <div class="contact-links">
+                                <a href="https://twitter.com/amrican_fashion"><i
+                                        class="fa-brands fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/Amrican-Fashion-103311982777469"><i
+                                        class="fa-brands fa-facebook"></i></a>
+                                <a href="https://www.instagram.com/amrican_fashion/"><i
+                                        class="fa-brands fa-instagram"></i></a>
+                                <a href="https://in.pinterest.com/amrican_fashion/"><i
+                                        class="fa-brands fa-pinterest"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 ">
+            <div class="col-lg-8 ">
                 <div class="main_contact d-flex justify-content-between">
                     <div class="contact">
-                        <h3>want to call with us?</h3>
+                        <h3>want to call us?</h3>
                         <div class="block d-flex">
                             <div class="icon-block">
                                 <i class="fa-solid fa-phone"></i>
@@ -37,14 +46,14 @@
                         </div>
                     </div>
                     <div class="contact">
-                        <h3>want to email with us?</h3>
+                        <h3>want to email us?</h3>
                         <div class="block d-flex">
                             <div class="icon-block">
                                 <i class="fa-solid fa-envelope"></i>
                             </div>
                             <div class="contact_block">
-                                <h4><a href="#">email</a></h4>
-                                <p><a href="#">info@example.com</a></p>
+                                <h4><a href="mailto: info@example.com">email</a></h4>
+                                <p><a href="mailto: info@example.com">info@example.com</a></p>
                             </div>
                         </div>
                     </div>
@@ -55,8 +64,12 @@
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <div class="contact_block">
-                                <h4><a href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1">location</a></h4>
-                                <p><a href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1">c-133, phase-8 mohali (punjab)</a> </p>
+                                <h4><a
+                                        href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1">location</a>
+                                </h4>
+                                <p><a
+                                        href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1">c-133,
+                                        phase-8 mohali (punjab)</a> </p>
                             </div>
                         </div>
                     </div>
@@ -85,8 +98,8 @@
                             </div>
                             <div class="footer-list">
                                 <ul>
-                                    <li><a href="./log-in.html">Login</a></li>
-                                    <li><a href="./sign-up.html">Register</a></li>
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'reg' %}">Register</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -101,8 +114,9 @@
                                     <li><a href="{% url 'faq' %}">FAQs</a></li>
                                     <li><a href="{% url 'aboutus' %}">about us</a></li>
                                     <li><a href="{% url 'terms' %}">Terms & Conditions</a></li>
-                                    <li><a href="{% url 'faq' %}">contact us</a></li>
-                                    <li><a href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1">Store
+                                    <li><a href="{% url 'contact' %}">contact us</a></li>
+                                    <li><a
+                                            href="https://www.google.com/maps/place/Plot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055/@30.7107629,76.7109592,20.21z/data=!4m15!1m8!3m7!1s0x390fee8acf5370cd:0x45d0b685220ae577!2sPlot+No.+C,+133,+Phase-8,+Industrial+Area,+Sector+74,+Sahibzada+Ajit+Singh+Nagar,+Punjab+160055!3b1!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1!3m5!1s0x390fee8acf5370cd:0x45d0b685220ae577!8m2!3d30.710917!4d76.711259!16s%2Fg%2F11nms6zdb1">Store
                                             location</a></li>
                                 </ul>
                             </div>
